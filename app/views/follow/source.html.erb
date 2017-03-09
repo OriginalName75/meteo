@@ -1,0 +1,19 @@
+
+<% @lieux.each do |l|  %>
+
+ <div id="LayoutDiv5">
+<div id="new-projects_<%= l.id %>"><center><%= image_tag("loading.gif", :width =>"80px") %></center></div>
+ 
+<script>
+$( "#new-projects_<%= l.id %>" ).load( "/ajax/<%= l.id %>" );
+</script>
+<a href="/lieux/<%= l.id %>">
+<%= image_tag("info.png", :alt=>"suivre", :title=>"Cliquez pour plus d'info", :width => "20px"	) %>
+</a>
+</div>
+<div id="LayoutDiv6">&nbsp;</div>
+
+<% end %>
+  
+  
+</div>

@@ -1,0 +1,246 @@
+@charset "utf-8";
+/* Média fluide simple
+   Remarque : un média fluide exige que vous supprimiez les attributs de hauteur et de largeur du média du code HTML
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+img, object, embed, video {
+	max-width: 100%;
+}
+/* IE 6 ne prend pas en charge max-width ; la largeur par défaut est donc fixée à 100% */
+.ie6 img {
+	width:100%;
+}
+.lienMenu {
+	color: #030;
+}
+/*
+	Propriétés de grille fluide Dreamweaver
+	----------------------------------
+	dw-num-cols-mobile:		5;
+	dw-num-cols-tablet:		8;
+	dw-num-cols-desktop:	10;
+	dw-gutter-percentage:	25;
+	
+	Inspiré par "Responsive Web Design" par Ethan Marcotte 
+	http://www.alistapart.com/articles/responsive-web-design
+	
+	et le système Golden Grid par Joni Korpi
+	http://goldengridsystem.com/
+*/
+
+/* Disposition mobile : 480px et moins. */
+
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 87.36%;
+	padding-left: 1.82%;
+	padding-right: 1.82%;
+}
+#LayoutDiv1 {
+	
+	background-color:#FFF;
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	background-color:#EEE;
+	clear: both;
+	float: left;
+	
+	width: 100%;
+	display: block;
+	padding-left:3px;
+	padding-right:3px;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+#LayoutDiv3 {
+
+	clear: both;
+	float: left;
+	margin-left: 0;
+	
+	width: 100%;
+	display: block;
+}
+#LayoutDiv4 {
+	background-color:#EEE;
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+	padding-left:3px;
+	padding-right:3px;
+	padding-top:13px;
+	padding-bottom:3px;
+}	
+.centreImg2{
+	margin-top:-13px;
+}
+.centreImg{
+	margin-top:-13px;
+}
+.chart1 {
+	width:100%;
+	height:500px;
+	
+	
+	
+}
+.bocc {
+	margin-top:20px;
+
+}
+.centreImg3{
+	margin-top:-3px;
+}
+.CGoogle {
+	
+	width:100%;
+	height:200px;
+}
+.CGoogle2 {
+	
+	width:100%;
+	height:500px;
+}
+#LayoutDiv5 {
+	background-color:#EEE;
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+	padding-left:3px;
+	padding-right:3px;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+#LayoutDiv6 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+
+/* Disposition tablette : 481px sur 768px. Hérite des styles de : Disposition mobile */
+
+@media only screen and (min-width: 481px) {
+.gridContainer {
+	width: 90.675%;
+	padding-left: 1.1625%;
+	padding-right: 1.1625%;
+}
+.CGoogle {
+	
+	width:100%;
+	height:400px;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv4 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv6 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+}
+
+/* Disposition bureau : 769px à max. 1232px.  Hérite des styles de : Disposition mobile et disposition tablette */
+
+@media only screen and (min-width: 769px) {
+.CGoogle {
+	
+	width:100%;
+	height:290px;
+}
+.gridContainer {
+	width: 88.2%;
+	max-width: 1232px;
+	padding-left: 0.9%;
+	padding-right: 0.9%;
+	margin: auto;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 48.9795%;
+	display: block;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv4 {
+	clear: none;
+	float: left;
+	margin-left: 2.0408%;
+	width: 48.9795%;
+	display: block;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv6 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+}

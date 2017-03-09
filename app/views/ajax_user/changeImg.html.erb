@@ -1,0 +1,94 @@
+
+<script type="text/javascript">
+
+function update_crop(coords) {
+
+ var yourImg = document.getElementById('cropbox');
+
+	
+  var ratio = yourImg.naturalWidth/parseInt(yourImg.style.width, 10);
+  var ratioH = yourImg.naturalHeight/parseInt(yourImg.style.height, 10);
+
+  $('#crop_x').val(Math.floor(coords.x * ratioH));
+  $('#crop_y').val(Math.floor(coords.y * ratioH));
+  $('#crop_w').val(Math.floor(coords.w * ratio));
+  $('#crop_h').val(Math.floor(coords.h * ratioH));  
+}
+
+$.globalEval("var api;");
+
+    // Also need to define your showPreview globally.
+$.globalEval("function showPreview(){ alert('Changed'); }");
+function destroy()
+    {
+    
+    }
+function setCrop()
+    {
+        // Need to pause a second or two to allow the image to load, otherwise the Jcrop plugin
+        // will not update the image size correctly and if you change image size the picture
+        // will be stretched.
+        // Change the 1000 to however many seconds you need to load the new image.
+        setTimeout("api = $('#cropbox').Jcrop({onChange: update_crop, onSelect: update_crop, setSelect: [0, 0, 500, 500], aspectRatio: 1 });",1000);
+    	 $('#cropbox').width = '20px';       
+    }	
+    setCrop();
+
+</script>
+
+<h2>Changer d'image :</h2>
+		<%= form_for current_user, url: "/ajaxuser/proxi", html: { class:"form-style-9", multipart: true } do |form| %>
+			
+		<ul><li>
+			<%= form.file_field :avatar, :class => "file" %></li><li>
+			<div class="upload-preview">
+
+			<%= image_tag(current_user.avatar.url(:original), :id=> "cropbox") %>
+			
+			</div>
+			<br />
+			 <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+			    <%= form.hidden_field attribute, :id => attribute %>
+			  <% end %>
+			<%= form.submit "Changer d\'image" %></li></ul>
+			<% end %>		
+<script type="text/javascript">
+
+$(document).ready(function(){
+    var preview = $(".upload-preview img");
+
+    $(".file").change(function(event){
+   	try {
+     JcropAPI = $('#cropbox').data('Jcrop');
+		 JcropAPI.destroy();
+		}  catch (Error)
+   { }
+
+       var input = $(event.currentTarget);
+       var file = input[0].files[0];
+       var reader = new FileReader();
+       reader.onload = function(e){
+           image_base64 = e.target.result;
+           var yourImg = document.getElementById('cropbox');
+    			
+					    yourImg.style.height = 'auto';
+					    yourImg.style.width = 'auto';
+					     yourImg.style.maxHeight = '500px';
+					     yourImg.style.maxWidth = '500px';
+					
+		           preview.attr("src", image_base64);
+		           	try {
+		           JcropAPI.setImage(image_base64);
+		           }catch (Error)
+   						{ }
+				
+              setCrop();
+          
+          
+       };
+       reader.readAsDataURL(file);
+       
+    });
+});
+
+</script>

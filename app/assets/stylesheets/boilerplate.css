@@ -1,0 +1,492 @@
+@charset "utf-8";
+/*
+/* 
+ * HTML5 ✰ Paragraphe de fin
+ *
+ * Ce qui suit est le fruit de recherches intensives sur la définition de styles utilisables sur plusieurs navigateurs. 
+ * Crédits laissés en retrait. Tous nos remerciements à Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, ainsi qu'à la communauté et l'équipe de développement H5BP.
+ *
+ * Informations détaillées sur ce CSS : h5bp.com/css
+ * 
+ * Modifications de Dreamweaver :
+ * 1. Mise en surbrillance de sélection convertie en commentaire
+ * 2. Suppression de la section sur les requêtes multimédias (la nôtre est ajoutée dans un fichier séparé)
+ *
+ * ==|== normalisation ==========================================================
+ */
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+ 
+
+
+ 	
+
+
+/* =============================================================================
+   Définitions d'affichage HTML5
+   ========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Redimensionnement anormal du texte dans IE6/7 si la taille de la police de corps est définie en unités em.
+ * 2. Barre de défilement verticale forcée dans les navigateurs autres que IE
+ * 3. Prévention de l'adaptation de la taille de texte sous iOS en cas de changement d'orientation de l'appareil, sans désactivation du zoom utilisateur : h5bp.com/g
+ */
+
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body { margin: 0; font-size: 13px; line-height: 1.231;background-color: #b7a28f;background-image: url(http://tradi-pratice.com/static/img/back6.png); }
+
+body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+
+/* 
+ * Suppression de l'ombrage du texte dans la mise en surbrillance de sélection : h5bp.com/i
+ * Ces déclarations de sélection doivent être séparées
+ * En outre : rose vif ! (ou personnalisez la couleur d'arrière-plan pour l'adapter à votre concept)
+ */
+
+/* Dreamweaver : annulez la mise en commentaire si vous voulez personnaliser la mise en surbrillance de la sélection.
+ *::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+ *::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+ */
+
+/* =============================================================================
+   Liens
+   ======================================================================
+
+
+/* =============================================================================
+   Typographie
+   ========================================================================== */
+
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong { font-weight: bold; }
+
+blockquote { margin: 1em 40px; }
+
+dfn { font-style: italic; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+/* Nouvelle déclaration de la famille de polices monospace : h5bp.com/j */
+pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+
+/* Amélioration de la lisibilité du texte préformaté dans tous les navigateurs */
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+
+small { font-size: 85%; }
+
+/* Placement du contenu en exposant et en indice sans influer sur la hauteur de ligne : h5bp.com/k */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+
+/* =============================================================================
+   Listes
+   ========================================================================== */
+
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+
+/* =============================================================================
+   Contenu incorporé
+   ========================================================================== */
+
+/*
+ * 1. Amélioration de la qualité d'image en cas de mise à l'échelle dans IE7 : h5bp.com/d
+ * 2. Suppression de l'espace entre images et bordures dans les conteneurs d'images : h5bp.com/e 
+ */
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+/*
+ * Débordement correct non masqué dans IE9 
+ */
+
+svg:not(:root) { overflow: hidden; }
+
+
+/* =============================================================================
+   Illustrations
+   ========================================================================== */
+
+figure { margin: 0; }
+
+
+/* =============================================================================
+   Formulaires
+   ========================================================================== */
+
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+
+/* Indiquer que le 'libellé' décalera le focus sur l'élément de formulaire associer */
+label { cursor: pointer; }
+
+/* 
+ * 1. Couleurs correctes non héritées dans IE6/7/8/9 
+ * 2. Alignement correct affiché de façon anormale dans IE6/7 
+ */
+
+legend { border: 0; *margin-left: -7px; padding: 0; }
+
+/*
+ * 1. Taille de police correcte non héritée dans tous les navigateurs
+ * 2. Suppression des marges dans FF3/4 S5 Chrome
+ * 3. Définition de l'affichage cohérent de l'alignement vertical dans tous les navigateurs
+ */
+
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+
+/*
+ * 1. Définition de la hauteur de ligne comme normale pour correspondre à FF3/4 (définition à l'aide de !important dans la feuille de style UA)
+ * 2. Espacement intérieur correct affiché de façon anormale dans IE6/7
+ */
+
+button, input { line-height: normal; *overflow: visible; }
+
+/*
+ * Réintroduction de l'espacement intérieur dans 'table' pour éviter les problèmes de chevauchement et d'espaces blancs dans IE6/7
+ */
+
+table button, table input { *overflow: auto; }
+
+/*
+ * 1. Affichage d'un curseur en forme de main pour les éléments de formulaire cliquables
+ * 2. Autoriser la définition de style pour les éléments de formulaire cliquables dans iOS
+ */
+
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+
+/*
+ * Dimensionnement et apparence cohérents des cases
+ */
+
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/* 
+ * Suppression de la marge intérieure et de la bordure dans FF3/4 : h5bp.com/l 
+ */
+
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/* 
+ * 1. Suppression de la barre de défilement verticale par défaut dans IE6/7/8/9 
+ * 2. Autoriser le redimensionnement vertical seul
+ */
+
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+
+/* Couleurs pour validité de formulaire */
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+
+/* =============================================================================
+   Tableaux
+   ========================================================================== */
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+
+/* ==|== styles principaux =====================================================
+   Auteur : Momo
+   ========================================================================== */
+
+.linkC:link {
+    color: #a00;
+    text-decoration: none;
+}
+
+/* visited link */
+.linkC:visited {
+    color: #a00;
+}
+
+/* mouse over link */
+.linkC:hover {
+    color: #a70;
+    text-decoration: underline;
+}
+
+/* selected link */
+.linkC:active {
+    color: blue;
+}
+.alert {
+	color:#fff;
+	font-weight: bold;
+	font-size: 250%;
+}
+.form-style-9{
+    max-width: 90%;
+    background: #FAFAFA;
+    padding: 30px;
+    margin: 50px auto;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    border: 6px solid #305A72;
+}
+.form-style-9 ul{
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+.form-style-9 ul li{
+    display: block;
+    margin-bottom: 10px;
+    min-height: 35px;
+}
+
+.form-style-9 ul li .field-style{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 8px;
+    outline: none;
+    border: 1px solid #B0CFE0;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+
+}.form-style-9 ul li  .field-style:focus{
+    box-shadow: 0 0 5px #B0CFE0;
+    border:1px solid #B0CFE0;
+}
+.form-style-9 ul li .field-split{
+    width: 49%;
+}
+.form-style-9 ul li .field-full{
+    width: 100%;
+}
+.form-style-9 ul li input.align-left{
+    float:left;
+}
+.form-style-9 ul li input.align-right{
+    float:right;
+}
+.form-style-9 ul li textarea{
+    width: 100%;
+    height: 100px;
+}
+.form-style-9 ul li input[type="button"],
+.form-style-9 ul li input[type="submit"] {
+    -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
+    box-shadow: inset 0px 1px 0px 0px #3985B1;
+    background-color: #216288;
+    border: 1px solid #17445E;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    padding: 8px 18px;
+    text-decoration: none;
+    font: 12px Arial, Helvetica, sans-serif;
+}
+.form-style-9 ul li input[type="button"]:hover,
+.form-style-9 ul li input[type="submit"]:hover {
+    background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+    background-color: #28739E;
+}
+
+
+
+
+
+
+
+
+/*** Table Styles **/
+
+.table-fill {
+  background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  height: 320px;
+  margin: auto;
+  max-width: 600px;
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+ 
+.table-fill th {
+  color:#D5DDE5;;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #111111;
+  font-size:23px;
+  font-weight: 100;
+  padding:24px;
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+.table-fill th:first-child {
+  border-top-left-radius:3px;
+}
+ 
+.table-fill th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+  
+.table-fill  tr {
+  border-top: 1px solid #111111;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+ 
+.table-fill tr:hover td {
+  background:#50664E;
+  color:#FFFFFF;
+  border-top: 1px solid #2e2226;
+  border-bottom: 1px solid #2e2226;
+}
+ 
+.table-fill tr:first-child {
+  border-top:none;
+}
+
+.table-fill tr:last-child {
+  border-bottom:none;
+}
+ 
+.table-fill tr:nth-child(odd) td {
+  background:#AAFFAA;
+}
+ 
+.table-fill tr:nth-child(odd):hover td {
+  background:#555555;
+}
+
+.table-fill tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+.table-fill tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+.table-fill td {
+  background:#FFFFFF;
+  padding:20px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+.table-fill td:last-child {
+  border-right: 0px;
+}
+
+.table-fill th.text-left {
+  text-align: left;
+}
+
+.table-fill th.text-center {
+  text-align: center;
+}
+
+.table-fill th.text-right {
+  text-align: right;
+}
+
+.table-fill td.text-left {
+  text-align: left;
+}
+
+.table-fill td.text-center {
+  text-align: center;
+}
+
+.table-fill td.text-right {
+  text-align: right;
+}
+
+
+
+
+
+
+/* ==|== classes auxiliaires non sémantiques ========================================
+   Définissez vos styles avant cette section.
+   ========================================================================== */
+
+/* Pour le remplacement d'image */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+/* Masquer des lecteurs d'écran et des navigateurs : h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
+
+/* Masquer visuellement, mais laisser à disposition des lecteurs d'écran : h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Développe la classe .visuallyhidden pour permettre le focus sur l'élément en cas d'accès à l'aide du clavier : h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Masquer visuellement et des lecteurs d'écran, mais conserver la disposition */
+.invisible { visibility: hidden; }
+
+/* Contient des éléments flottants : h5bp.com/q */ 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+/* ==|== styles d'impression =======================================================
+   Styles d'impression.
+   Mis en retrait pour éviter la connexion HTTP obligatoire : h5bp.com/r
+   ========================================================================== */
+ 
+ @media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Le noir s'imprime plus vite : h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Ne pas afficher les liens pour les images ou les liens JavaScript/internes */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}

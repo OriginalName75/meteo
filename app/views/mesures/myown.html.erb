@@ -1,0 +1,14 @@
+
+
+
+	
+	
+<%= form_tag "/books", method: "post" do %>
+  <input type="text" name="title" />
+  <input type="submit" value="Ajouter le livre" />
+<% end %>
+	
+	
+	
+	
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>

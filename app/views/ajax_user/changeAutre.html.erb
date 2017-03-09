@@ -1,0 +1,52 @@
+
+
+<h2>Mes paramètres :</h2>
+<%= form_for current_user, url: "/ajaxparams/proxi", html: { class:"form-style-9"} do |form| %>
+ 	 
+<ul>
+<li>
+  <div class="field">
+   
+
+    <%= form.text_field :nom, autofocus: true, :class =>"field-style field-split align-left", :placeholder=>"Nom"%>
+  </div>
+ 
+  <div class="field">
+    
+    <%= form.text_field :prenom, :class =>"field-style field-split align-right", :placeholder=>"Prenom"%>
+  </div>
+  </li>
+ <li>
+  <div class="field">
+   
+
+    <%= form.text_field :username, :class =>"field-style field-full align-none", :placeholder=>"Nom d'utilisateur"%>
+  </div>
+   </li>
+    <li>
+  <div class="field">
+   
+	Pour me décrit rapidement : <%= form.select :affichage,  [['Afficher mon nom d\'utilisateur uniquement'], ['Afficher mon nom et prenom uniquement'], ['Afficher mon mon d\'utilisateur puis mon nom et prenom']], :selected => @init  %>
+    
+  </div>
+  </li>
+    <li>
+
+   
+	<table><tr><td>Sur votre profile, rendre votre mail visible :</td><td> <%= form.check_box :affichageMail%></td></tr></table>
+    
+
+  </li>
+    <li>
+  <div class="field">
+   <table><tr><td>Sur votre profile, rendre votre nom et prenom visible :</td><td> <%= form.check_box :affichageNomPrenom %></td></tr></table>
+    
+
+    
+  </div>
+   </li>
+<li>
+ 
+
+<%= form.submit "Changer mon profile" %></li></ul>
+<% end %>	

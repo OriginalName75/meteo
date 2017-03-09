@@ -1,0 +1,83 @@
+ 
+ <script>
+ 
+
+
+
+  $( function() {
+    $( document ).tooltip({
+      items: "img, [data-geo], [title]",
+      content: function() {
+        var element = $( this );
+         <% if @w.humi %>
+        if ( element.is( "[data]" ) ) {
+          var text = element.text();
+          return "<img class='map' alt='" + text +
+            "' src='<%= image_url(@w.humiImg) %>'> <center><%= @w.humidescr %></center>";
+        }
+        <% end %>
+        if ( element.is( "[title]" ) ) {
+          return element.attr( "title" );
+        }
+        if ( element.is( "img" ) ) {
+          return element.attr( "alt" );
+        }
+      }
+    });
+  } );
+  </script>	
+
+<h1><%= image_tag("place.png", :width => "30px", :class =>"centreImg") %><%= @lieu.nom %>
+<% if current_user %>
+<% if current_user.lieus.where(id:@iddd).size==0 %>
+<a href="/follow/fol/<%= @iddd %>">
+<%= image_tag("suivre.png", :alt=>"suivre", :title=>"Cliquez pour acceder facillement aux données météo de ce lieux à chaque connexion.", :width => "50px", :class =>"centreImg"	) %>
+</a>
+<% else %>
+<a href="/follow/unfoll/<%= @iddd %>">
+<%= image_tag("suivreno.png", :alt=>"suivre", :title=>"Cliquez pour acceder facillement aux données météo de ce lieux à chaque connexion.", :width => "50px", :class =>"centreImg"	) %>
+</a>
+<% end%>
+<% end %>
+</h1>
+   <hr />
+   <h2>En ce moment :</h2>
+   <% if @isopen %>
+   <%= image_tag(@imgWea, :alt => @descWea, :id => "open-event", :title => @descWea, :height => "50px") %> |
+   <% end %>
+   <% if @tempe %>
+   <%= image_tag(@imgtempe, :height => "30px", :alt => "Température", :title => "Température") %><big><big><b><%= @tempe %></b>°C |
+   <% end %>
+   <% if @w.humi %>
+   <%= image_tag("humm.png" , :height => "30px", :id => "open-event2", :data =>"", :alt => "humidité") %><b><%= @w.humi %></b> %   |
+   <% end %>
+   <% if @w.windS %>
+   <% if @descAngle %> 
+   <%= image_tag(("meteo/vent/"+@w.windImg), :height => "30px", :id => "open-event2", :alt => @w.windDesc, :title => (@w.windDesc + "<br />Direction : <center><canvas id='canvasCompass' width='200' height='200'></canvas></center>
+   	
+   <script>
+        var compass = new Compass('canvasCompass');
+        compass.set(1);
+        compass.animate("+@descAngle+");
+    </script>")) %> 
+    <% else %>
+    <%= image_tag(("meteo/vent/"+@w.windImg), :height => "30px", :id => "open-event2", :alt => @w.windDesc, :title => (@w.windDesc)) %> 
+    <% end %>
+    <b><%= @w.windS %></b> m/s |
+   <% end %>
+   <% if @pression %>
+   <%= image_tag("press.png" , :height => "20px", :title =>"Pression", :alt =>"Pression") %>  
+   <b><%= @pression %></b> hPa |
+   <% end %>
+    <% if @cloudness %>
+   <%= image_tag("cloudness.png", :height => "20px", :alt => "Taux de nuage", :class =>"centreImg3", :title => "Taux de nuage (nébulosité)") %> <b><%= @cloudness %></b>%  |
+   <% end %>
+   <% if @isopen %>
+   <%= image_tag("reliable_icon.png", :alt => "Viable", :id => "open-event", :class =>"centreImg", :title => "Viable", :height => "30px") %>
+   <% else %>
+   <%= image_tag("no_reliable_icon.png", :alt => "Viable", :id => "open-event", :class =>"centreImg", :title => "Attention les données n'ont pas été vérifiées", :height => "30px") %>
+   
+   <% end %>
+   
+   </big></big>
+   

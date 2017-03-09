@@ -1,0 +1,38 @@
+<h2>Ajouter :</h2>
+
+<%= form_for @rasb, url: "/ajaxrasb/proxi", html: { class:"form-style-9"} do |form| %>
+ 	 
+<ul>
+<li>
+  <div class="field">
+   
+	 <%= form.text_field :user, autofocus: true, :class =>"field-style field-full align-none", :placeholder=>"Email de l'utilisateur", autocomplete: "off" %>
+  </div>
+ 
+ 
+   </li>
+  <li>
+  <div class="field">
+   
+	 <%= form.text_field :username, autofocus: true, :class =>"field-style field-full align-none", :placeholder=>"Login du Rasberry", autocomplete: "off" %>
+  </div>
+ 
+ 
+   </li>
+  
+   
+<li>
+ 
+  <div class="field">
+
+    <%= form.password_field :password, autocomplete: "off", :class =>"field-style field-split align-left", :placeholder =>"Mot de passe"  %>
+      </div>
+
+  <div class="field">
+    <%= form.password_field :password_confirmation, autocomplete: "off", :class =>"field-style field-split align-right", :placeholder =>" Confirmation de mot de passe"  %>
+  </div>
+</li>
+<li>
+<%= form.submit "Ajouter le rasberry" %></li></ul>
+<% end %>	
+

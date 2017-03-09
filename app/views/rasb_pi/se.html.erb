@@ -1,0 +1,1 @@
+<% if notice or alert %><p class="alert" id="alert2"><% if notice%><%= notice.html_safe %><% else%> <%= notice.to_s.html_safe %><% end %><%= alert %></p><%end %>

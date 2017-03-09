@@ -1,0 +1,93 @@
+<center>
+ 
+   <canvas id="myChart<%= params[:i] %>" width="300px" height="300px"></canvas>
+   
+   </center>
+<script>
+var originalLineDraw = Chart.controllers.line.prototype.draw;
+
+
+var ctx = document.getElementById("myChart<%= params[:i] %>");
+
+
+var Sol = new Image();
+Sol.src = '<%= image_url("meteo/01d.png") %>';
+
+
+var NuaQ = new Image();
+NuaQ.src = '<%= image_url("meteo/02d2.png") %>';
+
+
+var Nua = new Image();
+Nua.src = '<%= image_url("meteo/03d2.png") %>';
+
+
+var NuaD = new Image();
+NuaD.src = '<%= image_url("meteo/04d2.png") %>';
+
+
+var NuaDP = new Image();
+NuaDP.src = '<%= image_url("meteo/09d2.png") %>';
+
+
+var Pluie = new Image();
+Pluie.src = '<%= image_url("meteo/10d2.png") %>';
+
+
+var Temp = new Image();
+Temp.src = '<%= image_url("meteo/11d.png") %>';
+
+
+var Neige = new Image();
+Neige.src = '<%= image_url("meteo/13d.png") %>';
+
+var Brume = new Image();
+Brume.src = '<%= image_url("meteo/50d.png") %>';
+
+
+
+var data = {
+    labels: <%= @listT.html_safe %>,
+    lineAtIndex: <%= @listJ.html_safe %>,
+    lineAtIndex2: <%= @listJ2.html_safe %>,
+    lineAtIndex3: <%= @leng %>,
+    lineAtIndex7: <%= @pluss.html_safe %>,
+ 
+    datasets: [
+        {
+            label: "<%= @Nom.html_safe %>",
+            backgroundColor: "<%= @colorB %>",
+            borderColor: "<%= @color %>",
+            pointBackgroundColor: "<%= @colorP %>",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "<%= @colorO %>",
+            pointHoverBorderColor: "rgba(179,181,198,1)",
+            data: <%= @listTemp.html_safe %>
+        }
+        
+    ]
+};
+
+var myRadarChart = new Chart(ctx, {
+    type: 'line',
+    
+    data: data,
+    options: {
+       scale: {
+           reverse: true,
+           ticks: {
+               beginAtZero: false
+           }
+       },
+       responsive: true,
+
+       maintainAspectRatio: false,
+       
+         
+            
+    },
+    
+    
+});
+	
+</script>

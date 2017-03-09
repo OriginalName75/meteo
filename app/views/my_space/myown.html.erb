@@ -1,0 +1,77 @@
+<div id="LayoutDiv5">
+<table border="0">
+<tr><td>
+<div class="grow pic">
+
+	<a href="/ajaxuser"  id="show" class="button left">
+<%= image_tag current_user.avatar.url(:large), :alt =>"portrait" %>
+</a>
+
+</div>
+</td><td>
+<br /><br />
+<% if !current_user.nom.empty? and !current_user.nom.nil? %>
+<b>Nom</b> : <%= current_user.nom %><br /><br />
+<% end %>
+<% if !current_user.prenom.empty? and !current_user.prenom.nil? %>
+<b>Prenom</b> : <%= current_user.prenom %><br /><br />
+<% end %>
+<% if !current_user.prenom.empty? and !current_user.prenom.nil? %>
+<%= image_tag("username.png", :width => "18px", :class => "centreImg3") %> <b>Nom d'utilisateur</b> : <%= current_user.username %><br /><br />
+<% end %>
+<%= image_tag("email.png", :width => "18px", :class => "centreImg3") %> <b>Mail</b> : 	<%= current_user.email %><br /><br />
+<% if current_user.isAdmin %>
+<%= image_tag("admin.png", :width => "18px", :class => "centreImg3") %> Cet utilisteur est un administateur du site.
+<% end %>
+
+</td></tr></table>
+<br /><big><big>
+<span id="txt"></span></big></big><hr />
+<a href="/ajaxparams" class="button linkC" id="showParams"><%= image_tag("param.png", :width => "40px", :id => "showParamsImg") %>
+
+
+Modifier votre profile</a>
+<br />
+<%= image_tag("prof.png", :width => "35px") %> Vous pouvez cliquer sur votre pour le changer (c'est l'image si dessus).
+<% if current_user.isAdmin %>
+<hr />
+
+<h2>Administration</h2>
+
+<a href="/rasb_secs/sign_up" class="linkC" >
+Ajouter un raspberry pi</a><br /><br />
+
+<a href="/rasb_pi/all" class="linkC" >
+Liste des raspberry pi</a>
+<% end %>
+
+<script>
+$('#showParams').hover(function() {
+  $('#showParamsImg').attr('src', '<%= image_url("param2.png") %>');
+}, function() {
+  $('#showParamsImg').attr('src', '<%= image_url("param.png") %>');
+});
+
+$('.button').modaal({
+    type: 'ajax',
+    loading_content: 'Loading content, please wait.'
+});
+$( "div.grow" )
+  .mouseover(function() {
+    
+    $("#txt").text( "Cliquez sur votre avatar pour le changer" );
+  })
+  .mouseout(function() {
+    $( "#txt").text( "" );
+  });
+ 
+
+	
+	</script>
+
+
+
+
+
+
+</div></div>

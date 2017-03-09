@@ -1,0 +1,110 @@
+<div id="LayoutDiv5">
+ 
+<div id="new-projects"><center><%= image_tag("loading.gif", :width =>"80px") %></center></div>
+ 
+<script>
+$( "#new-projects" ).load( "/ajax/<%= @lieu.id %>" );
+</script>
+   	
+   	
+   </div>
+   <% if  @isopen %>
+   <div id="LayoutDiv3"> &nbsp;</div>
+   <div id="LayoutDiv5">
+   	
+   	<h2>Prévision :</h2>
+   	<div id="tabs">
+  <ul>
+    <li><a href="/lieux/<%= params[:l] %>/0">Temperature</a></li>
+    <li><a href="/lieux/<%= params[:l] %>/2">Humidité</a></li>
+    <li><a href="/lieux/<%= params[:l] %>/1">Vent</a></li>
+    <li><a href="/lieux/<%= params[:l] %>/3">Pression</a></li>
+    <li><a href="/lieux/<%= params[:l] %>/4">Nébulosité</a></li>
+  </ul>
+  <div id="tabs-1">
+  
+   
+</div>
+<script>
+
+
+
+
+Chart.pluginService.register({
+	
+    afterUpdate: function(chart) {
+    	var index = chart.config.data.lineAtIndex7;
+    	for (ii = 0; ii < index.length; ++ii) {
+			if (typeof chart.config.data.datasets[0]._meta[0]!== 'undefined') {
+			    chart.config.data.datasets[0]._meta[0].data[ii]._model.pointStyle = index[ii];
+			}
+        	
+        }
+        
+    }
+});
+
+Chart.pluginService.register({
+  beforeDraw: function(chart) {
+    var width = chart.chart.width,
+        height = chart.chart.height,
+        ctx = chart.chart.ctx;
+        
+    
+    
+  
+    var index = chart.config.data.lineAtIndex;
+    var index2 = chart.config.data.lineAtIndex2;
+    
+    var ii;
+    
+     var xaxis = chart.scales['x-axis-0'];
+      var yaxis = chart.scales['y-axis-0'];
+    for (ii = 0; ii < index.length; ++ii) {
+	 
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(xaxis.getPixelForValue(undefined, index[ii]), yaxis.top);
+      ctx.strokeStyle = '#0000aa';
+      ctx.lineTo(xaxis.getPixelForValue(undefined, index[ii]), yaxis.bottom);
+      ctx.stroke();
+      ctx.restore();
+	}
+	
+    
+    
+    
+	for (ii = 0; ii <= index.length; ++ii) {
+	    ctx.restore();
+	    var fontSize = (height / 400).toFixed(2);
+	    ctx.font = fontSize + "em sans-serif";
+	    ctx.textBaseline = "middle";
+	    var min;
+		if (ii==0) {
+			min=0;
+		}else{
+			min=width*index[ii-1]/chart.config.data.lineAtIndex3;
+		}
+		var max;
+		if (ii==index.length) {
+			max=width;
+		}else {
+			max=width*index[ii]/chart.config.data.lineAtIndex3;
+		}
+		
+	    var text = index2[ii],
+	        textX = Math.round((min+max)/2 ),
+	        textY = height / 6;
+	
+	    ctx.fillText(text, textX, textY);
+	    ctx.save();
+    }
+    
+  }
+});
+</script>
+	</div>
+	<% end %>
+   </div>
+</div>

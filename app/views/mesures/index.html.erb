@@ -1,0 +1,13 @@
+ <div id="LayoutDiv5">
+<%= form_tag("/mesures", method: "post")  do %>
+
+<%= select_date @date, prefix: :start_date %>
+
+<input type="submit" value="Choisir" />
+<% end %>
+
+	<%= line_chart @mesures %>
+	
+	<%=  @result %>
+	
+</div>

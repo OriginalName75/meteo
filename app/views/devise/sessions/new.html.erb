@@ -1,0 +1,38 @@
+<div id="LayoutDiv5">
+<h2>Connexion</h2>
+<hr />
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html =>{:class =>"form-style-9"}) do |f| %>
+ <ul>
+<li>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, :class =>"field-style field-full align-none" %>
+  </div>
+  </li>
+  <li>
+  <div class="field">
+    <%= f.label "Mot de passe" %><br />
+    <%= f.password_field :password, autocomplete: "off", :class =>"field-style field-full align-none" %>
+  </div>
+  </li>
+  <li>
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label "Se souvenir de moi ?" %>
+    </div>
+      </li>
+  <li>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Vous connecter" %>
+  </div>
+  </li></ul>
+
+  <%= render "devise/shared/links" %>
+<% end %>
+
+
+</div></div>

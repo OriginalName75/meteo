@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mesures</title>
+ 
+
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  <script>
+  	
+$( function() {
+   
+    $( "#open-event" ).tooltip({
+      show: null,
+      position: {
+        my: "left top",
+        at: "left bottom"
+      },
+      open: function( event, ui ) {
+        ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+      }
+    });
+  } );
+    $( function() {
+   
+    $( "#open-event2" ).tooltip({
+      show: null,
+      position: {
+        my: "left top",
+        at: "left bottom"
+      },
+      open: function( event, ui ) {
+        ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+      }
+    });
+  } );
+
+  
+  </script>
+    
+  </head>
+
+  <body>
+  <div class="gridContainer clearfix">
+  <div id="LayoutDiv1"><div style="padding-left:5%"><div style="padding-left:10%"><%= image_tag("titre.png", :alt => "Titre") %></div>
+  <div class="container">
+			<!-- Top Navigation -->
+		
+<section class="color-1">
+
+				<nav class="cl-effect-1">
+				
+					<a href="/">ACCUEIL</a>
+					<a href="/all">LIEUX</a>
+					<a href="#">PARTICIPATION</a>
+					<% if current_user %>
+						<a href="/myspace/myown">MON COMPTE</a>
+							
+<%= link_to "DECONNEXION", destroy_user_session_path, :method => :delete %>
+					<% else %>
+						<a href="/users/sign_in">CONNNEXION</a>
+						<a href="/users/sign_up">INSCRIPTION</a>
+					<% end %>
+					
+				</nav>	
+		</section>
+                 
+                     
+      </div></div> </div>
+  <div id="LayoutDiv3"> &nbsp; <% if notice or alert %><p class="alert" id="alert2"><% if notice%><%= notice.html_safe %><% else%> <%= notice.to_s.html_safe %><% end %><%= alert %></p><%end %></div>
+
+<script>
+if (document.getElementById("alert2")) {
+	setTimeout(function() {document.getElementById('alert2').innerHTML = ''},4000);
+}
+</script>
+  
+  
+  
+  
+    <%= yield %>
+    
+    
+      
+	
+
+  </body>
+</html>

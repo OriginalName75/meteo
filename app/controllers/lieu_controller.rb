@@ -1,0 +1,2 @@
+class LieuController < ApplicationController
+end
