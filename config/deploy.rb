@@ -5,7 +5,7 @@ lock "3.7.2"
 set :application, "myapp"
 set :repo_url, "https://github.com/OriginalName75/meteo.git"
 
-set :deploy_to, '/home/deploy/myapp'
+set :deploy_to, '/home/deploy/meteo'
 
 append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
