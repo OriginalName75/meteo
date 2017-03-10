@@ -10,13 +10,13 @@
 </div>
 </td><td>
 <br /><br />
-<% if !current_user.nom.empty? and !current_user.nom.nil? %>
+<% if !current_user.nom.nil? %>
 <b>Nom</b> : <%= current_user.nom %><br /><br />
 <% end %>
-<% if !current_user.prenom.empty? and !current_user.prenom.nil? %>
+<% if !current_user.prenom.nil? %>
 <b>Prenom</b> : <%= current_user.prenom %><br /><br />
 <% end %>
-<% if !current_user.prenom.empty? and !current_user.prenom.nil? %>
+<% if !current_user.prenom.nil? %>
 <%= image_tag("username.png", :width => "18px", :class => "centreImg3") %> <b>Nom d'utilisateur</b> : <%= current_user.username %><br /><br />
 <% end %>
 <%= image_tag("email.png", :width => "18px", :class => "centreImg3") %> <b>Mail</b> : 	<%= current_user.email %><br /><br />
