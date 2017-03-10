@@ -49,7 +49,7 @@ class SourceController < ApplicationController
   def create
     co=0
     Lieu.delete_all
-    file = File.read('/home/originalname/myapp/city.list.json')
+    file = File.read('city.list.json')
     file.gsub!(/\r\n?/, "\n")
     file.each_line do |line|
       data_hash = JSON.parse(line)
