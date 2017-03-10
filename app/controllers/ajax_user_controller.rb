@@ -3,9 +3,7 @@ class AjaxUserController < ApplicationController
   before_action :authenticate_user!
 
   def changeImg
-    pn = Pathname.new(current_user.avatar.path(:original))
-    ln= Pathname.new(current_user.avatar.path(:large))
-    @e=ln.exist? && pn.exist?
+   
     render :layout => false
   end
 
