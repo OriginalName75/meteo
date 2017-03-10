@@ -9,7 +9,7 @@ class FollowController < ApplicationController
   def source
     @lieux=current_user.lieus
 
-    if @lieux.size==0
+    if @lieux.count==0
       redirect_to "/"
     end
   end
@@ -23,7 +23,11 @@ class FollowController < ApplicationController
 
     idd = params[:l].to_i
     @lieu=Lieu.where(id: idd)
-    current_user.lieus << @lieu
+    if current_user.lieus.where(id: idd).count==0
+      current_user.lieus << @lieu
+      puts 'kjdsdldsjdsjl'
+    end
+   
 
     redirect_to "/follow/source"
     return 0
