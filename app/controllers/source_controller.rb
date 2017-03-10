@@ -33,7 +33,7 @@ class SourceController < ApplicationController
       end
       
     end
-    puts @minnn.nom    
+      
     @users = Lieu.all
 
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|

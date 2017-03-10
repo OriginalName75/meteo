@@ -12,34 +12,35 @@
 
 ActiveRecord::Schema.define(version: 20170309014941) do
 
-  create_table "lieus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "lieus", force: :cascade do |t|
     t.string   "nom"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.float    "latitude",         limit: 24
-    t.float    "longitude",        limit: 24
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "address"
     t.integer  "openW"
     t.datetime "lastMesureUpdate"
   end
 
-  create_table "mesures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "mesures", force: :cascade do |t|
     t.datetime "t"
     t.integer  "vitessevent"
     t.integer  "lieu_id"
-    t.float    "temperature", limit: 24
+    t.float    "temperature"
     t.integer  "rasb_id"
-    t.integer  "user_id"
     t.integer  "rasb_sec_id"
-    t.float    "humidite",    limit: 24
-    t.float    "pression",    limit: 24
+    t.float    "humidite"
+    t.float    "pression"
     t.index ["lieu_id"], name: "index_mesures_on_lieu_id", using: :btree
     t.index ["rasb_id"], name: "index_mesures_on_rasb_id", using: :btree
     t.index ["rasb_sec_id"], name: "index_mesures_on_rasb_sec_id", using: :btree
-    t.index ["user_id"], name: "index_mesures_on_user_id", using: :btree
   end
 
-  create_table "rasb", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "rasb", force: :cascade do |t|
     t.string   "username"
     t.string   "password"
     t.string   "salt"
@@ -47,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170309014941) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "rasb_secs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "rasb_secs", force: :cascade do |t|
     t.string   "login",               default: "", null: false
     t.string   "encrypted_password",  default: "", null: false
     t.datetime "remember_created_at"
@@ -65,7 +66,7 @@ ActiveRecord::Schema.define(version: 20170309014941) do
     t.index ["user_id"], name: "index_rasb_secs_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -93,7 +94,7 @@ ActiveRecord::Schema.define(version: 20170309014941) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "users_lieus", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users_lieus", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "lieu_id"
     t.index ["lieu_id"], name: "index_users_lieus_on_lieu_id", using: :btree

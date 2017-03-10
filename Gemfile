@@ -1,10 +1,15 @@
 source 'https://rubygems.org'
 
-
+gem 'capistrano', '~> 3.7', '>= 3.7.1'
+gem 'capistrano-rails', '~> 1.2'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'rake', '12.0.0'
+# Add this if you're using rbenv
+gem 'capistrano-rbenv', '~> 2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.18', '< 0.5'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -52,6 +57,10 @@ gem 'whenever'
 gem "paperclip", "~> 5.0.0"
 gem 'jcrop-rails-v2'
 gem 'magnific-popup-rails', '~> 1.1.0'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 group :development, :test do
     gem 'railroady'
