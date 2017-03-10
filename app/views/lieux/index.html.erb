@@ -4,6 +4,9 @@
  
 <script>
 $( "#new-projects" ).load( "/ajax/<%= @lieu.id %>" );
+$("#tabs").tabs({
+    cache: false,
+});
 </script>
    	
    	
