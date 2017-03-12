@@ -183,7 +183,8 @@ class AjaxLieuController < ApplicationController
       @result = HTTParty.get(url)
       @result.parsed_response
       w = Wheater.new(@result["weather"][0]["icon"],@result["main"]["temp"],@result["main"]["humidity"],@result["wind"]["speed"])
-      
+       puts @result["wind"]
+      @descAngle=@result["wind"]["deg"].to_s
       puts @result["main"]["temp"] 
       @imgWea="meteo/"+w.img
       @descWea=w.desc
