@@ -202,6 +202,7 @@ class AjaxLieuController < ApplicationController
         @tempe=@w.tempe
         @imgtempe=@w.imgtempe
       end
+      @user=mesure.rasb_sec.user
 
     end
     render :layout => false

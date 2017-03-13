@@ -40,8 +40,13 @@
 <% end%>
 <% end %>
 </h1>
+ <% if not @isopen %>
+   <div id="new-projects33"><center><%= image_tag("loading.gif", :width =>"80px") %></center></div>
+  <% end %>
    <hr />
+  
    <h2>En ce moment :</h2>
+   
    <% if @isopen %>
    <%= image_tag(@imgWea, :alt => @descWea, :id => "open-event", :title => @descWea, :height => "50px") %> |
    <% end %>
@@ -76,7 +81,12 @@
    <%= image_tag("reliable_icon.png", :alt => "Viable", :id => "open-event", :class =>"centreImg", :title => "Viable", :height => "30px") %>
    <% else %>
    <%= image_tag("no_reliable_icon.png", :alt => "Viable", :id => "open-event", :class =>"centreImg", :title => "Attention les données n'ont pas été vérifiées", :height => "30px") %>
+   <br />
    
+<script>
+$( "#new-projects33" ).load( "/user_info/mini/<%= @user.id %>" );
+</script>
+   	
    <% end %>
    
    </big></big>

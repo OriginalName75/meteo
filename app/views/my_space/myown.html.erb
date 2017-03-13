@@ -3,37 +3,46 @@
 <tr><td>
 <div class="grow pic">
 
-	<a href="/ajaxuser"  id="show" class="button left">
-<%= image_tag current_user.avatar.url(:large), :alt =>"portrait" %>
+	
+<% if not @other %><a href="/ajaxuser"  id="show" class="button left"><% end %>
+<%= image_tag @user.avatar.url(:large), :alt =>"portrait" %>
+
+<% if not @other %>
 </a>
+<% end %>
 
 </div>
 </td><td>
 <br /><br />
-<% if !current_user.nom.nil? %>
-<b>Nom</b> : <%= current_user.nom %><br /><br />
+<% if !@user.nom.nil? %>
+<b>Nom</b> : <%= @user.nom %><br /><br />
 <% end %>
-<% if !current_user.prenom.nil? %>
-<b>Prenom</b> : <%= current_user.prenom %><br /><br />
+<% if !@user.prenom.nil? %>
+<b>Prenom</b> : <%= @user.prenom %><br /><br />
 <% end %>
-<% if !current_user.prenom.nil? %>
-<%= image_tag("username.png", :width => "18px", :class => "centreImg3") %> <b>Nom d'utilisateur</b> : <%= current_user.username %><br /><br />
+<% if !@user.prenom.nil? %>
+<%= image_tag("username.png", :width => "18px", :class => "centreImg3") %> <b>Nom d'utilisateur</b> : <%= @user.username %><br /><br />
 <% end %>
-<%= image_tag("email.png", :width => "18px", :class => "centreImg3") %> <b>Mail</b> : 	<%= current_user.email %><br /><br />
-<% if current_user.isAdmin %>
-<%= image_tag("admin.png", :width => "18px", :class => "centreImg3") %> Cet utilisteur est un administateur du site.
+<%= image_tag("email.png", :width => "18px", :class => "centreImg3") %> <b>Mail</b> : 	<%= @user.email %><br /><br />
+<% if @user.isAdmin %>
+<%= image_tag("admin.png", :width => "18px", :class => "centreImg3") %> Cet utilisteur est un administateur du site.<br /><br />
+<% end %>
+<% if @user.rasb_sec %>
+<%= image_tag("pi.png", :width => "18px", :class => "centreImg3") %> Cet utilisteur possède un rasbperry. (<%= @user.rasb_sec[0].mesure.count %> donnée(s) ajoutées)
 <% end %>
 
 </td></tr></table>
 <br /><big><big>
-<span id="txt"></span></big></big><hr />
+<span id="txt"></span></big></big>
+	
+<% if not @other %>
+<hr />
 <a href="/ajaxparams" class="button linkC" id="showParams"><%= image_tag("param.png", :width => "40px", :id => "showParamsImg") %>
-
 
 Modifier votre profile</a>
 <br />
 <%= image_tag("prof.png", :width => "35px") %> Vous pouvez cliquer sur votre pour le changer (c'est l'image si dessus).
-<% if current_user.isAdmin %>
+<% if not @other && @user.isAdmin %>
 <hr />
 
 <h2>Administration</h2>
@@ -70,8 +79,7 @@ $( "div.grow" )
 	</script>
 
 
-
-
+<% end %>
 
 
 </div></div>

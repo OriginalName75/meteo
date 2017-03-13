@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  get 'user_info/mini/:l' => 'user_info#mini'
+
+
   get 'plus/:l'  => 'plus#plus'
 
   get 'follow/source'
@@ -52,6 +55,7 @@ Rails.application.routes.draw do
   get 'mesures/generator' => 'mesures#generator'
   get 'mesures/myown' => 'mesures#myown'
   get 'myspace/myown' => 'my_space#myown'
+  get 'myspace/myown/:l' => 'my_space#myown'
   post 'myspace/myown' => 'my_space#create'
   post 'mesures' => 'mesures#postH'
   post 'proxi' => 'source#proxi'
