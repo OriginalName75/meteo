@@ -204,8 +204,11 @@ class AjaxLieuController < ApplicationController
         @imgtempe=@w.imgtempe
       end
       @user=mesure.rasb_sec.user
-      @modif=mesure.t
-
+      time2 = Time.now
+      @modif=time2 - mesure.t
+      
+      @modif= (@modif/60).to_i
+      @modifi=1
     end
     render :layout => false
   end
