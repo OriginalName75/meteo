@@ -1,4 +1,5 @@
 require "Wheater.rb"
+
 class String
   def is_i?
     !!(self =~ /\A[-+]?[0-9]+\z/)
@@ -33,7 +34,7 @@ class AjaxLieuController < ApplicationController
 
     @lieu = Lieu.find(idd)
     @result=""
-  
+
     if prammm==2
       @Nom="Humidité (%)"
       @color="rgba(0,0,179,1)"
@@ -129,7 +130,7 @@ class AjaxLieuController < ApplicationController
         strrr=(t.hour).to_s+"h"
         @listT= @listT+"\""+strrr+"\""
         w = Wheater.new(l["weather"][0]["icon"],"","","")
-         
+
         if prammm==0
           @pluss= @pluss+w.ajaxI
         end
@@ -183,9 +184,9 @@ class AjaxLieuController < ApplicationController
       @result = HTTParty.get(url)
       @result.parsed_response
       w = Wheater.new(@result["weather"][0]["icon"],@result["main"]["temp"],@result["main"]["humidity"],@result["wind"]["speed"])
-       puts @result["wind"]
+      puts @result["wind"]
       @descAngle=@result["wind"]["deg"].to_s
-      puts @result["main"]["temp"] 
+      puts @result["main"]["temp"]
       @imgWea="meteo/"+w.img
       @descWea=w.desc
       @tempe=w.tempe
@@ -203,6 +204,7 @@ class AjaxLieuController < ApplicationController
         @imgtempe=@w.imgtempe
       end
       @user=mesure.rasb_sec.user
+      @modif=mesure.t
 
     end
     render :layout => false

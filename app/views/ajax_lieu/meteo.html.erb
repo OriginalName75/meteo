@@ -80,7 +80,7 @@
    <% if @isopen %>
    <%= image_tag("reliable_icon.png", :alt => "Viable", :id => "open-event", :class =>"centreImg", :title => "Viable", :height => "30px") %>
    <% else %>
-   <%= image_tag("no_reliable_icon.png", :alt => "Viable", :id => "open-event", :class =>"centreImg", :title => "Attention les données n'ont pas été vérifiées", :height => "30px") %>
+   <%= image_tag("no_reliable_icon.png", :alt => "Viable", :id => "open-event", :class =>"centreImg", :title => "Attention les données n'ont pas été vérifiées. <br />Dernière modification : "+@modif.to_s, :height => "30px") %>
    <br />
    
 <script>
