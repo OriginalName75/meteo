@@ -1,4 +1,4 @@
 
 <% if @init %>
-<a href="/myspace/myown/<%= @user.id %>" class="linkC"><%= image_tag current_user.avatar.url(:small), :alt =>"portrait", :width=>"20px" %><small><b> <%= @init %></b></small></a>
+<a href="/myspace/myown/<%= @user.id %>" class="linkC"><%= image_tag @user.avatar.url(:small), :alt =>"portrait", :width=>"20px" %><small><b> <%= @init %></b></small></a>
 <% end %>
