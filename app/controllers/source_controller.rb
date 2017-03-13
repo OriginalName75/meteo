@@ -19,8 +19,14 @@ class SourceController < ApplicationController
       end
 
     end
-    #    @position=request.location.coordinates
-    @position= [48.114722, -1.679444]
+    begin
+      @position=request.location.coordinates
+    rescue
+      @position= [48.114722, -1.679444]
+    end
+    if @position==[0.0,0.0]
+      @position= [48.114722, -1.679444]
+    end
     l=Lieu.near(@position, 100, :units => :km)
 
     min=-1

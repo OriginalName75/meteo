@@ -63,6 +63,9 @@ handler.buildMap({ internal: {id: 'custom_builder'}}, function(){
 <script>
 $( "#new-projects" ).load( "/ajax/<%= @minnn.id %>" );
 </script>
+<a href="/lieux/<%= @minnn.id %>">
+<%= image_tag("info.png", :alt=>"suivre", :title=>"Cliquez pour plus d'info", :width => "20px"	) %>
+</a>
   <% else %>	
   <p>Nous n'arrivons pas à vous localiser</p>
   <% end %>
