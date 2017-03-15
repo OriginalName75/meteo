@@ -41,6 +41,11 @@ Finally :
 ```
 rbenv rehash
 ```
+### imagemagick
+```
+sudo apt-get install ghostscript
+sudo apt-get install imagemagick
+```
 ### PostgreSQL
 ```
 sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
@@ -57,6 +62,7 @@ sudo -u postgres psql
 postgres=# \password proj
 ```
 If it does not work, see a guide for your specific OS.
+
 ## Import the git
 In a new foler :
 ```
@@ -67,9 +73,29 @@ then
 ```
 cd meteo
 ```
-rename config/
+rename config/database.yml.example to config/database.yml
+edit it with the posgresql login/pass
+
+rename config/secrets.yml.example to config/secrets.yml
 
 
+## Gem
 
+```
+bundle
+```
 
+## database updates 
 
+```
+rake db:create
+```
+and
+```
+rake db:create
+```
+
+# Run the server
+```
+rails s
+```
