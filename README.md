@@ -62,8 +62,12 @@ In a new foler :
 ```
   git clone https://github.com/OriginalName75/meteo.git
 ```
+then 
 
-
+```
+cd meteo
+```
+rename config/
 
 
 
