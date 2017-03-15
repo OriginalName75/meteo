@@ -8,6 +8,7 @@ sudo apt-get update
 sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev nodejs
 ```
 ### Ruby with rbenv:
+It can take some time :
 ```
 cd
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -27,6 +28,19 @@ ruby -v
 ```
 gem install bundler
 ```
+### Ruby on Rails 5.0.2
+```
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+then 
+```
+gem install rails -v 5.0.2
+```
+Finally :
+```
+rbenv rehash
+```
 ### PostgreSQL
 ```
 sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
@@ -38,9 +52,7 @@ sudo apt-get install postgresql-9.5 libpq-dev
 Set up your user :
 ```
 sudo -u postgres createuser proj -s
-```
-If you would like to set a password for the user, you can do the following :
-```
+
 sudo -u postgres psql
 postgres=# \password proj
 ```
