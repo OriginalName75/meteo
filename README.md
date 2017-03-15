@@ -23,9 +23,31 @@ rbenv install 2.4.0
 rbenv global 2.4.0
 ruby -v
 ```
-and 
+  and 
 ```
 gem install bundler
+```
+### PostgreSQL
+```
+sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
+wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install postgresql-common
+sudo apt-get install postgresql-9.5 libpq-dev
+```
+Set up your user :
+```
+sudo -u postgres createuser proj -s
+```
+If you would like to set a password for the user, you can do the following :
+```
+sudo -u postgres psql
+postgres=# \password proj
+```
+## Import the git
+In a new foler :
+```
+  git clone https://github.com/OriginalName75/meteo.git
 ```
 
 
