@@ -99,3 +99,4 @@ rake db:create
 ```
 rails s
 ```
+on your growser: http://localhost:3000/
