@@ -56,6 +56,7 @@ sudo -u postgres createuser proj -s
 sudo -u postgres psql
 postgres=# \password proj
 ```
+If it does not work, see a guide for your specific OS.
 ## Import the git
 In a new foler :
 ```
