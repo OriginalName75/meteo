@@ -27,7 +27,7 @@
 <% if @user.isAdmin %>
 <%= image_tag("admin.png", :width => "18px", :class => "centreImg3") %> Cet utilisteur est un administateur du site.<br /><br />
 <% end %>
-<% if @user.rasb_sec %>
+<% if @user.rasb_sec and @user.rasb_sec[0] %>
 <%= image_tag("pi.png", :width => "18px", :class => "centreImg3") %> Cet utilisteur possède un rasbperry. (<%= @user.rasb_sec[0].mesure.count %> donnée(s) ajoutées)
 <% end %>
 
