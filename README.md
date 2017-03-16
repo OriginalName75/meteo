@@ -92,7 +92,7 @@ rake db:create
 ```
 and
 ```
-rake db:create
+rake db:migrate
 ```
 
 # Run the server
